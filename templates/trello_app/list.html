@@ -1,0 +1,33 @@
+{% extends "trello_app/base.html" %}
+
+{% block extra_title %}
+- List
+{% endblock %}
+
+{% block heading %}
+List: {{ list_name }}
+{% endblock %}
+
+{% block content %}
+<button>
+  <a href="{% url 'create_task' list_id %}">
+    Create Task
+  </a>
+</button>
+
+<ul>
+{% for task in tasks %}
+<li>
+  <h2>
+    Task: {{ task.name }}
+  </h2>
+  <h3>
+    Description: {{ task.desc }}
+  </h3>
+  <h3>
+    Due Date: {{ task.due_date }}
+  </h3>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}

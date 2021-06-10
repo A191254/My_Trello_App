@@ -1,0 +1,25 @@
+{% extends "trello_app/base.html" %}
+
+{% block extra_title %}
+- Boards
+{% endblock %}
+
+{% block heading %}
+All Boards
+{% endblock %}
+
+{% block content %}
+<button>
+  <a href="{% url 'create_board' %}">
+    Create Board
+  </a>
+</button>
+
+{% for board in boards %}
+<h2>
+  <a href="{% url 'display_board' board.id %}">
+    Board Name: {{ board.name }}
+  </a>
+</h2>
+{% endfor %}
+{% endblock %}
